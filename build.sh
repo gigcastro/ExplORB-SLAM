@@ -1,4 +1,4 @@
 echo "Building ExplORBSLAM catkin workspace ..."
 
-catkin build -j1
+catkin build
 source devel/setup.bash
