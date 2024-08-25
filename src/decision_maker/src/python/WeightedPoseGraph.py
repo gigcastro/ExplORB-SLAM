@@ -51,13 +51,14 @@ class WeightedPoseGraph:
         self.graph = nx.Graph()
         self.criteria = criteria
         if (nodes is not None) and (edges is not None):
-            for i in range(0, np.size(nodes, 0)):
+            for i in range(0, len(nodes)):
                 p = nodes[i][1]  # array of pose
                 q = nodes[i][2]  # array of quaternion
                 self.graph.add_node(nodes[i][0], translation=p, orientation=q)  # qx, qy, qz, qw
-            for i in range(0, np.size(edges, 0)):
+                
+            for i in range(0, len(edges)):            
                 edge = (edges[i][0], edges[i][1])
-                edge_type = 0 if abs(edges[i][0] - edges[i][1]) == 1 else 1
+                edge_type = 0 if abs(edges[i][0] - edges[i][1]) == 1 else 1                
                 FIM = edges[i][2]
                 A = FIM
                 A = np.nan_to_num(A, nan=np.nanmax(A), posinf=np.nanmax(A), neginf=-np.nanmax(A))
