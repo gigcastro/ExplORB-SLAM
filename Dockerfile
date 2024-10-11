@@ -18,6 +18,8 @@ RUN apt-get update \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
+RUN rm /etc/ros/rosdep/sources.list.d/20-default.list 
+
 # Install apt packages dependencies
 RUN apt update && apt install -y --no-install-recommends apt-utils && \
     rosdep init && rosdep update
@@ -41,11 +43,11 @@ RUN apt install -y \
     ros-noetic-teb-local-planner
     
 # Install python packages dependencies
-RUN pip install --yes \
+RUN pip install \
     numpy \
     scipy \
     scikit-learn \
-    Numba \
+    numba \
     networkx \
     sophus \
     sophuspy \
