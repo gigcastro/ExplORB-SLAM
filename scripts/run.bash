@@ -4,7 +4,7 @@
 # RUN THIS SCRIPT FROM THE ROOT PROJECT DIRECTORY
 #
 
-source setup.env
+source scripts/setup.env
 
 # Default value
 default_container_name=$IMAGE_NAME
@@ -41,6 +41,6 @@ docker run -it \
    -v /tmp/.X11-unix:/tmp/.X11-unix \
    -v /dev/dri:/dev/dri \
    -v /dev/shm:/dev/shm \
-   -v $(pwd)/..:$EXPLORB_WS \
+   -v $(pwd):$EXPLORB_WS \
    --name $container_name \
    $IMAGE_NAME

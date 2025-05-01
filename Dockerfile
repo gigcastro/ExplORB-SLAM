@@ -47,7 +47,7 @@ RUN pip install \
     numpy \
     scipy \
     scikit-learn \
-    numba \
+    Numba \
     networkx \
     sophus \
     sophuspy \
@@ -58,7 +58,6 @@ RUN pip install \
 # Adding sourcing ros environment in bash profile
 ENV SHELL /bin/bash
 RUN echo source /opt/ros/noetic/setup.bash >> /home/$USERNAME/.bashrc
-RUN echo source $EXPLORB_WS/devel/setup.bash >> /home/$USERNAME/.bashrc
 
 # Setting the user inside container
 USER $USERNAME
