@@ -1,4 +1,37 @@
-ExplORB-SLAM
+Dockerize ExplORB-SLAM
+============
+
+Dockerized version of ExplORB-SLAM.
+
+(optional) Configure docker container
+------------
+ Set environment variables in ```/scripts/setup.env``` accordingly.
+
+Variables will define which user and permissions are forwarded to the container.
+
+```./run.sh``` will forward the current directory (cwd) to ```EXPLORB_WS```.
+
+
+Build docker container
+------------
+```
+cd /scripts
+./build.sh
+```
+
+Run the docker container with 
+------------
+The ```./scripts/run.sh``` script need to be executed from the desired directory to be forwarded to ```EXPLORB_WS```.
+
+```
+cd ..
+./scripts/run.sh
+```
+It is configured to forward user permissions, directory files and display for GUI visualization (RViz/Gazebo).
+
+Once in the container you can compile and execute the project as explained by the original project README.
+
+ExplORB-SLAM original README
 ============
 
 A package for Active visual SLAM using the structure of the underlying pose-graph.
