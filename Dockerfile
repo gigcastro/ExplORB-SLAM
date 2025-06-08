@@ -3,6 +3,7 @@ FROM ros:noetic-perception
 ARG USERNAME=USERNAME
 ARG USER_UID=USER_UID
 ARG USER_GID=USER_GID
+ARG EXPLORB_WS=EXPLORB_WS
 
 RUN echo "Building..."
 RUN echo "+ USERNAME=$USERNAME" 
@@ -47,7 +48,7 @@ RUN pip install \
     numpy \
     scipy \
     scikit-learn \
-    Numba \
+    numba \
     networkx \
     sophus \
     sophuspy \
@@ -56,7 +57,7 @@ RUN pip install \
     nptyping
 
 # Adding sourcing ros environment in bash profile
-ENV SHELL /bin/bash
+ENV SHELL=/bin/bash
 RUN echo source /opt/ros/noetic/setup.bash >> /home/$USERNAME/.bashrc
 
 # Setting the user inside container
